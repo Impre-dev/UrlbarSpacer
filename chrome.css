@@ -1,0 +1,65 @@
+/* ══ UrlbarSpacer ═══════════════════════════════════════════════════════
+   Widget fantôme : invisible sur les toolbars, visible en mode
+   personnalisation (palette + toolbars pendant le drag).
+   ⚠️ Ne JAMAIS mettre margin-right dans ce fichier : la valeur est posée
+   en inline style par le script (pref) — un !important CSS l'écraserait. */
+
+#urlbarspacer-btn {
+    appearance: none !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    width: 10px !important;
+    min-width: 10px !important;
+}
+
+/* Fantôme : icône + texte cachés en usage normal */
+#urlbarspacer-btn > .toolbarbutton-icon,
+#urlbarspacer-btn > .toolbarbutton-text {
+    display: none !important;
+}
+
+/* Mode personnalisation : taille native + icône visible (palette + toolbars) */
+#navigator-toolbox[customizing] #urlbarspacer-btn,
+#customization-palette #urlbarspacer-btn {
+    width: auto !important;
+    min-width: auto !important;
+}
+
+#navigator-toolbox[customizing] #urlbarspacer-btn > .toolbarbutton-icon,
+#customization-palette #urlbarspacer-btn > .toolbarbutton-icon {
+    display: flex !important;
+}
+
+/* ── Mini panneau ──────────────────────────────────────────────────────── */
+
+#urlbarspacer-panel .urlbarspacer-box {
+    padding: 8px 10px;
+}
+
+.urlbarspacer-head {
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 6px;
+}
+
+.urlbarspacer-title {
+    font-weight: 600;
+}
+
+.urlbarspacer-value {
+    min-width: 52px;
+    text-align: right;
+    opacity: 0.75;
+    font-variant-numeric: tabular-nums;
+}
+
+.urlbarspacer-slider {
+    width: 240px;
+    margin: 2px 0 8px;
+}
